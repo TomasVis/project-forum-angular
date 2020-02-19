@@ -2,24 +2,11 @@
   <div class="question-container">
     <a href="../views/edit-post.html?id=0" class="redirect-to-post" id="0"
       ><h4 class="question-header">
-        Select coordinates which fall within central
+        {{ data.title }}
       </h4>
-      <p class="regular-text">
-        I have a database of coordinates adipiscing elit. Proin facilisis est ut
-        ultricies mattis. In vitae velit nec ante viverra convallis. Donec
-        vehicula luctus euismod. Interdum et malesuada fames ac ante ipsum
-        primis in faucibus.
-      </p></a
+      <p class="regular-text">{{ data.content }}</p></a
     >
-    <div class="tag-container">
-      <div class="tag-label"><div class="inside-animation">apps</div></div>
-      <div class="tag-label"><div class="inside-animation">business</div></div>
-      <div class="tag-label"><div class="inside-animation">glass</div></div>
-      <div class="tag-label"><div class="inside-animation">google</div></div>
-      <div class="tag-label">
-        <div class="inside-animation">technology</div>
-      </div>
-    </div>
+<app-article-tags></app-article-tags>
     <div class="user-info-container">
       <figure>
         <img
@@ -28,11 +15,11 @@
           class="user-image"
         />
       </figure>
-      <p class="regular-text user-name">Marry</p>
-      <div class="user-tag">Proffesor</div>
+      <p class="regular-text user-name">{{ data.author }}</p>
+      <div class="user-tag">{{ data.userTag }}</div>
       <div class="question-details regular-text">
-        <p>Asked on 2014-06-09 in</p>
-        <a class="link" href="#">Technology</a>
+        <p>Asked on {{ data.date }} in</p>
+        <a class="link" href="#">{{ data.category }}</a>
       </div>
     </div>
   </div>
