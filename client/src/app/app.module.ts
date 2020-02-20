@@ -10,6 +10,7 @@ import { RightSideComponent } from './components/right-side/right-side.component
 import { FooterComponent } from './components/footer/footer.component';
 import { ArticleComponent } from './components/article/article.component';
 import { ArticleTagsComponent } from './components/article-tags/article-tags.component';
+import { ArticleStatisticsComponent } from './components/article-statistics/article-statistics.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ArticleTagsComponent } from './components/article-tags/article-tags.com
     FooterComponent,
     ArticleComponent,
     ArticleTagsComponent,
+    ArticleStatisticsComponent,
 
   ],
   imports: [

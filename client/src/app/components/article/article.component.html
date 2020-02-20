@@ -2,40 +2,28 @@
     <div class="question-container">
       <a href="../views/edit-post.html?id=0" class="redirect-to-post" id="0"
         ><h4 class="question-header">
-          {{ data.title }}
+          {{ post.title }}
         </h4>
-        <p class="regular-text">{{ data.content }}</p></a
+        <p class="regular-text">{{ post.content }}</p></a
       >
-  <app-article-tags></app-article-tags>
+  <app-article-tags [tagsArray]="post.tags"></app-article-tags>
       <div class="user-info-container">
         <figure>
           <img
-            src="https://randomuser.me/api/portraits/lego/0.jpg"
+            src="{{ post.photo }}"
             alt="Lego User"
             class="user-image"
           />
         </figure>
-        <p class="regular-text user-name">{{ data.author }}</p>
-        <div class="user-tag">{{ data.userTag }}</div>
+        <p class="regular-text user-name">{{ post.author }}</p>
+        <div class="user-tag">{{ post.userTag }}</div>
         <div class="question-details regular-text">
-          <p>Asked on {{ data.date }} in</p>
-          <a class="link" href="#">{{ data.category }}</a>
+          <p>Asked on {{ post.date }} in</p>
+          <a class="link" href="#">{{ post.category }}</a>
         </div>
       </div>
     </div>
-    <div class="question-info-container">
-      <div>
-        <div class="info-label"><div class="inside-animation">70</div></div>
-        <p class="regular-text">Views</p>
-      </div>
-      <div>
-        <div class="info-label"><div class="inside-animation">3</div></div>
-        <p class="regular-text">Answers</p>
-      </div>
-      <div>
-        <div class="info-label"><div class="inside-animation">0</div></div>
-        <p class="regular-text">Votes</p>
-      </div>
-    </div>
+    <app-article-statistics [post]="post"></app-article-statistics>
+
   </article>
   

@@ -21,9 +21,8 @@
             </select>
           </div>
         </div>
-        <app-article></app-article>
-        <app-article></app-article>
-        <app-article></app-article>
+        <app-article *ngFor="let post of newData;"[post]="post"></app-article>
+
       </div>
     </section>
     <app-right-side></app-right-side>
