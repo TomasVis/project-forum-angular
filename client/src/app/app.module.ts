@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { MainComponent } from './components/main/main.component';
@@ -11,7 +11,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ArticleComponent } from './components/article/article.component';
 import { ArticleTagsComponent } from './components/article-tags/article-tags.component';
 import { ArticleStatisticsComponent } from './components/article-statistics/article-statistics.component';
+import { FormComponent } from './components/form/form.component';
 
+const appRoutes: Routes = [
+  { path: 'all-posts', component: ArticleComponent },
+  { path: 'edit-post', component: FormComponent },
+  { path: '',   redirectTo: '/all-posts', pathMatch: 'full' },
+];
 
 @NgModule({
   declarations: [
@@ -24,14 +30,18 @@ import { ArticleStatisticsComponent } from './components/article-statistics/arti
     ArticleComponent,
     ArticleTagsComponent,
     ArticleStatisticsComponent,
+    FormComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

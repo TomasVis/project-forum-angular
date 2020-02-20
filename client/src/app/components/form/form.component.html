@@ -1,0 +1,40 @@
+<div class="form-container">
+  <form id="form" class="edit-form">
+    <input class="input-field" type="hidden" id="post-id" name="id" value="" />
+    <label class="form-label" for="title">Name:</label>
+    <input class="input-field" type="text" id="author" name="author" value="" />
+    <label class="form-label" for="date">Date:</label>
+    <input class="input-field" type="date" id="date" name="date" value="" />
+    <label class="form-label" for="title">Title:</label>
+    <input
+      class="input-field input-title"
+      type="text"
+      id="title"
+      name="title"
+      value=""
+    />
+    <label class="form-label" for="content">Explanation:</label>
+    <textarea
+      class="input-field"
+      id="content"
+      name="content"
+      rows="7"
+      cols="40"
+      value=""
+    ></textarea>
+    <div class="form-buttons-container">
+      <button type="button" class="btn-blue" id="save" name="save" value="Save">
+        Save
+      </button>
+      <button
+        type="button"
+        class="hidden"
+        id="delete"
+        name="delete"
+        value="Delete"
+      >
+        Delete
+      </button>
+    </div>
+  </form>
+</div>
