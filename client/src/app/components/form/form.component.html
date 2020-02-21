@@ -1,34 +1,48 @@
 <div class="form-container">
-  <form id="form" class="edit-form">
-    <input class="input-field" type="hidden" id="post-id" name="id" value="" />
+  <form id="form" class="edit-form" [formGroup]="articleForm" >
+    <input class="input-field" type="hidden" id="post-id" formControlName="id" value="" />
     <label class="form-label" for="title">Name:</label>
-    <input class="input-field" type="text" id="author" name="author" value="" />
+    <input
+      class="input-field"
+      type="text"
+      id="author"
+      formControlName="author"
+
+    />
     <label class="form-label" for="date">Date:</label>
-    <input class="input-field" type="date" id="date" name="date" value="" />
+    <input
+      class="input-field"
+      type="date"
+      id="date"
+      formControlName="date"
+
+    />
     <label class="form-label" for="title">Title:</label>
     <input
       class="input-field input-title"
       type="text"
       id="title"
-      name="title"
-      value=""
+      formControlName="title"
+
     />
     <label class="form-label" for="content">Explanation:</label>
     <textarea
       class="input-field"
       id="content"
-      name="content"
+      formControlName="content"
       rows="7"
       cols="40"
-      value=""
+
     ></textarea>
     <div class="form-buttons-container">
-      <button type="button" class="btn-blue" id="save" name="save" value="Save">
+      <button type="button" class="btn-blue" (click)="onClickSave()" id="save" name="save" value="Save">
         Save
       </button>
       <button
+      *ngIf="isEdit"
+      (click)="onClickDelete()"
         type="button"
-        class="hidden"
+        class="btn-blue red"
         id="delete"
         name="delete"
         value="Delete"

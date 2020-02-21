@@ -24,6 +24,7 @@ app.get('/get-post',urlencodedParser, function(req, res) {
 });
 
 app.get('/delete-post',urlencodedParser, function(req, res) {
+  console.log(req.query.id)
   if(req.query.id) {
     let index = posts.findIndex(obj => Number(obj.id) === Number(req.query.id));
     posts.splice(index,1);
@@ -33,6 +34,7 @@ app.get('/delete-post',urlencodedParser, function(req, res) {
 });
 
 app.post('/update-post',jsonParser, function(req, res) {
+  console.log(req.body)
   if(req.query.id){
       req.body.id = Number(req.query.id);
       let index = posts.findIndex(obj => Number(obj.id) === Number(req.body.id));
@@ -41,7 +43,7 @@ app.post('/update-post',jsonParser, function(req, res) {
   } else {
     posts.push(createNewPost(req.body));
   }
-  res.json('complete');
+  res.json('updated');
 });
 
 app.listen(3000, function() {

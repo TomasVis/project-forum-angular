@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Posts } from './posts';
+import { ArticleDataService } from '../../services/article.data.service';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
+  styleUrls: ['./article.component.scss'],
+  providers: [ ArticleDataService ],
 })
 export class ArticleComponent implements OnInit {
-  newData: any; 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit() {
-    this.http.get<any>('http://localhost:3000/posts').subscribe(data => {
-      this.newData = data;
-    });
+  allPosts: Posts[]; 
+  constructor(private articleService: ArticleDataService) { }
+  
+  ngOnInit(): void {
+    this.articleService.getPosts()
+      .subscribe((data: Posts[]) => this.allPosts = data);
   }
 };
 

@@ -12,6 +12,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { ArticleTagsComponent } from './components/article-tags/article-tags.component';
 import { ArticleStatisticsComponent } from './components/article-statistics/article-statistics.component';
 import { FormComponent } from './components/form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'all-posts', component: ArticleComponent },
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
-    )
+    ),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,10 +17,10 @@
     </select>
   </div>
 </div>
-<article *ngFor="let post of newData" class="article-container">
+<article *ngFor="let post of allPosts" class="article-container">
   <div class="question-container">
-    <a href="/edit-post?id=0" class="redirect-to-post" id="0"
-      ><h4 class="question-header">
+    <a href="/edit-post?id={{post.id}}" class="redirect-to-post" id="0">
+      <h4 class="question-header">
         {{ post.title }}
       </h4>
       <p class="regular-text">{{ post.content }}</p></a
