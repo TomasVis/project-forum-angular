@@ -1,0 +1,54 @@
+<div class="form-container">
+    <form id="form" class="edit-form" [formGroup]="articleForm" >
+      <input class="input-field" type="hidden" id="post-id" formControlName="id" value="" />
+      <label class="form-label" for="title">formControlName:</label>
+      <input
+        class="input-field"
+        type="text"
+        id="author"
+        formControlName="author"
+
+      />
+      <label class="form-label" for="date">Date:</label>
+      <input
+        class="input-field"
+        type="date"
+        id="date"
+        formControlName="date"
+
+      />
+      <label class="form-label" for="title">Title:</label>
+      <input
+        class="input-field input-title"
+        type="text"
+        id="title"
+        formControlName="title"
+
+      />
+      <label class="form-label" for="content">Explanation:</label>
+      <textarea
+        class="input-field"
+        id="content"
+        formControlName="content"
+        rows="7"
+        cols="40"
+
+      ></textarea>
+      <div class="form-buttons-container">
+        <button type="button" class="btn-blue" (click)="onClickSave()" id="save" name="save" value="Save">
+          Save
+        </button>
+        <button
+        (click)="onClickDelete()"
+          type="button"
+          class="btn-blue red"
+          id="delete"
+          name="delete"
+          value="Delete"
+        >
+          Delete
+        </button>
+      </div>
+    </form>
+  </div>
+  
