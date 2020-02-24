@@ -1,0 +1,43 @@
+<div class="form-container">
+  <form id="form" class="edit-form" [formGroup]="articleForm">
+    <input class="input-field" type="hidden" formControlName="id" />
+    <label class="form-label" for="title">Name:</label>
+    <input class="input-field" type="text" formControlName="author" />
+    <label class="form-label" for="date">Date:</label>
+    <input class="input-field" type="date" formControlName="date" />
+    <label class="form-label" for="title">Title:</label>
+    <input
+      class="input-field input-title"
+      type="text"
+      formControlName="title"
+    />
+    <label class="form-label" for="content">Explanation:</label>
+    <textarea
+      class="input-field"
+      formControlName="content"
+      rows="7"
+      cols="40"
+    ></textarea>
+    <div class="form-buttons-container">
+      <button
+        type="button"
+        class="btn-blue"
+        (click)="onClickSave()"
+        name="save"
+        value="Save"
+      >
+        Save
+      </button>
+      <button
+        *ngIf="isEdit"
+        (click)="onClickDelete()"
+        type="button"
+        class="btn-blue red"
+        name="delete"
+        value="Delete"
+      >
+        Delete
+      </button>
+    </div>
+  </form>
+</div>

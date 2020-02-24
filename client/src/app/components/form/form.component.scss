@@ -1,0 +1,27 @@
+  
+  .input-field {
+    font-family: "Roboto", sans-serif; ;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(163, 167, 175, 0.5);
+    box-shadow: 1px 1px 1px rgb(163, 167, 175);
+  }
+  
+  .form-buttons-container {
+    display: flex;
+    padding-top: 10px;
+  }
+  
+  .input-title {
+    width: calc(100% - 20px);
+  }
+  
+  .form-label {
+    display: block;
+    margin: 10px 0 10px 0;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  

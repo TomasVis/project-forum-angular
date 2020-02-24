@@ -1,0 +1,138 @@
+.side-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 190px;
+    position: fixed;
+  }
+  
+  .left-container {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid rgb(238, 241, 241);
+    padding: 20px;
+    width: calc(100% - 40px);
+  }
+  
+  .ask-question-container {
+    border-bottom: 2px solid rgb(238, 241, 241);
+    padding: 20px;
+  }
+  
+  .btn-blue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 136px;
+    height: 35px;
+    background-color: rgb(22, 162, 255);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    letter-spacing: 0;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+  .btn-blue:hover {
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.21);
+      transform: scale(1.02);
+  }
+  
+  .red {
+    background-color:rgb(255,45,22) ;
+  }
+  
+  .copyright-container {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid rgb(238, 241, 241);
+    padding: 20px;
+    width: calc(100% - 40px);
+  }
+
+  .link:hover {
+    color: rgb(21, 70, 102);
+  }
+  .login .link:hover {
+    color: rgb(196, 196, 196);
+  }
+  
+  .text-with-icon:hover {
+    color: rgb(0, 159, 245);
+  }
+
+  .pseudo-icon:before {
+    content: "";
+    display: block;
+    background-image: url(http://www.trenatics.com/public/images/iconfile/sprites/css-sprite/sprite-action-grey600.png);
+    width: 24px;
+    height: 24px;
+    transform: scale(0.6);
+    background-repeat: no-repeat;
+    padding: 0;
+    border: none;
+  }
+
+  .social-media {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 20px 0 20px 0;
+  }
+  
+  .social-icon {
+    width: 48px;
+    height: 48px;
+    transform: scale(0.6);
+    background-image: url("https://i.stack.imgur.com/LR6bK.png");
+    background-repeat: no-repeat;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .facebook-icon {
+    background-position: -347px -141px;
+  }
+  
+  .facebook-icon:hover {
+    background-position: -347px -400px;
+  }
+  
+  .twiter-icon {
+    background-position: -861px -141px;
+  }
+  
+  .twiter-icon:hover {
+    background-position: -861px -400px;
+  }
+  
+  .google-icon {
+    background-position: -215px -141px;
+  }
+  
+  .google-icon:hover {
+    background-position: -215px -400px;
+  }
+  
+  .question-mark:before {
+    background-position: -242px -106px;
+  }
+  
+  .tag-icon:before {
+    background-position: -276px -174px;
+  }
+  
+  .badge-icon:before {
+    background-position: -175px -4px;
+  }
+  
+  .category-icon:before {
+    background-position: -141px -379px;
+  }
+  
+  .users-icon:before {
+    background-position: -4px -4px;
+  }
+  

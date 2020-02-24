@@ -1,0 +1,122 @@
+  
+  .navigation {
+    position: fixed;
+    z-index: 1;
+  }
+  
+  .logo {
+    display: flex;
+    color: rgb(255, 255, 255);
+    position: fixed;
+    left: 0;
+    top:0;
+    z-index: 1;
+    height: 80px;
+    align-items: center;
+    padding-left: 20px;
+  }
+  
+  .nav-bar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(47, 54, 73);
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 190px 0 190px;
+  }
+  
+  .search-logo-wrapper {
+    display: flex;
+  }
+  
+  .search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 30px;
+    width: 300px;
+  }
+  
+  .input-text {
+    background: rgb(255, 255, 255);
+    border-radius: 25px;
+    padding: 0;
+    padding-left: 5px;
+    margin: 0;
+    border-width: 0;
+    height: 30px;
+    width: 100%;
+  }
+  
+  .magnifying-glass {
+    background-position: -244px -310px;
+    position: relative;
+    right: 30px;
+  }
+  
+  .nav-links {
+    background-color: rgb(0, 0, 0);
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-ul {
+    display: flex;
+    align-items: center;
+  }
+
+  .link-text {
+    display: flex;
+    align-items: center;
+  }
+  
+  .expand-link {
+    display: flex;
+    cursor: pointer;
+  }
+  
+  .expand-link:hover {
+    color: rgb(0, 159, 245);
+  }
+  
+  .login {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    width: 190px;
+  }
+  
+  .login .link {
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 550px) {
+    .login {
+      display: none;
+    }
+  
+    .nav-bar {
+      padding-right: 0;
+    }
+  
+    .nav-links {
+      padding-right: 20px;
+    }
+  
+    .edit-form {
+      margin: 10px;
+      padding: 10px;
+    }
+  
+  }
+  

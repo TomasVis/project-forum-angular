@@ -1,0 +1,46 @@
+<div class="select-container">
+  <h2 class="category-picker-headline">All Questions</h2>
+  <select class="filter-select " name="pages">
+    <option value="category1">Filter by category</option>
+  </select>
+</div>
+<div class="select-container">
+  <div class="selected-category">
+    <h5 class="category-title">Latest</h5>
+    <h5 class="category-title">Votes</h5>
+    <h5 class="category-title">Unanswered</h5>
+  </div>
+  <div class="category-selection-wraper">
+    <h5 class="category-title">Questions per page</h5>
+    <select class="questions-per-page " name="category">
+      <option>12</option>
+    </select>
+  </div>
+</div>
+<article *ngFor="let post of allPosts" class="article-container">
+  <div class="question-container">
+    <a
+      [routerLink]="['/edit-post']"
+      [queryParams]="{ id: post.id }"
+      class="redirect-to-post"
+    >
+      <h4 class="question-header">
+        {{ post.title }}
+      </h4>
+      <p class="regular-text">{{ post.content }}</p></a
+    >
+    <app-article-tags [tagsArray]="post.tags"></app-article-tags>
+    <div class="user-info-container">
+      <figure>
+        <img src="{{ post.photo }}" alt="Lego User" class="user-image" />
+      </figure>
+      <p class="regular-text user-name">{{ post.author }}</p>
+      <div class="user-tag">{{ post.userTag }}</div>
+      <div class="question-details regular-text">
+        <p>Asked on {{ post.date }} in</p>
+        <a class="link" href="#">{{ post.category }}</a>
+      </div>
+    </div>
+  </div>
+  <app-article-statistics [post]="post"></app-article-statistics>
+</article>
