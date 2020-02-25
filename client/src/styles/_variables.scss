@@ -1,0 +1,32 @@
+
+  $text-color-primary:rgb(177, 177, 177);
+  $text-color-secondary:rgb(0, 159, 245);
+  $article-text-color:rgb(71, 71, 71);
+  $logo-color:rgb(255, 255, 255);
+  $nav-bar-color-primary:rgb(47, 54, 73);
+  $nav-bar-color-secondary:rgb(0, 0, 0);
+  $button-color-delete:rgb(255,45,22);
+  $transparent:rgba(0, 0, 0, 0);
+  $left-side-background-color:rgba(163, 167, 175, 0.5);
+  $articles-background-color:rgba(163, 167, 175, 0.1);
+  $questions-line-color:rgb(22, 162, 255);
+  $members-line-color:rgb(219, 144, 4);
+  $user-tag-color:rgb(167, 43, 150);
+  $circle-radial-color-primary: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 1) 35%,
+      rgba(206, 218, 212, 1) 100%
+    );
+    $circle-radial-color-secondary: radial-gradient(
+        circle,
+        rgba(5, 184, 139, 1) 35%,
+        rgba(59, 221, 255, 1) 100%
+      );
+
+  $primary-border: 2px solid rgb(238, 241, 241);
+  $secondary-border: solid 1px rgba(163, 167, 175, 0.6);
+  $tag-border: 1px solid rgb(182, 182, 182);
+
+  $tag-label-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.21);
+  $input-field-shadow: 1px 1px 1px rgb(163, 167, 175);
+

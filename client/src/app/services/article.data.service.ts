@@ -15,7 +15,8 @@ getPosts() {
     return this.http.get(this.getPostsUrl);
   }
 getPost(id:string) {
-    return this.http.get(this.getPostUrl+id);
+  //Post
+    return this.http.get<Post>(this.getPostUrl+id);
   }
 deletePost(id:string) {
     return this.http.get(this.deletePostUrl+id);

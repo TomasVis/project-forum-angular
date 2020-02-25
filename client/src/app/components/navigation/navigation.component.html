@@ -7,7 +7,7 @@
     <div class="nav-bar nav-middle">
       <div class="search">
         <input
-          class="input-text"
+          class="search-bar-text"
           type="text"
           name="fname"
           placeholder="Enter Keyword"
@@ -17,7 +17,8 @@
       <div class="nav-links">
         <ul class="nav-ul">
           <li>
-            <a href="/all-posts">
+            <a [routerLink]="['/all-posts']">
+
               <div class="text-with-icon">Home</div>
             </a>
           </li>

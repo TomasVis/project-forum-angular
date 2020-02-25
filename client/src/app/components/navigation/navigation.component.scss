@@ -1,0 +1,187 @@
+@import '../../../styles/variables'; 
+  .navigation {
+    position: fixed;
+    z-index: 1;
+  }
+  
+  .logo {
+    display: flex;
+    color: $logo-color;
+    position: fixed;
+    left: 0;
+    top:0;
+    z-index: 1;
+    height: 80px;
+    align-items: center;
+    padding-left: 20px;
+  }
+  
+  .nav-bar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $nav-bar-color-primary;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 190px 0 190px;
+  }
+  
+  .search-logo-wrapper {
+    display: flex;
+  }
+  
+  .search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 30px;
+    width: 300px;
+  }
+  
+  .search-bar-text{
+    border-radius: 25px;
+    padding: 0;
+    padding-left: 5px;
+    margin: 0;
+    border-width: 0;
+    height: 30px;
+    width: 100%;
+  }
+  
+  .magnifying-glass {
+    background-position: -244px -310px;
+    position: relative;
+    right: 30px;
+  }
+  
+  .nav-links {
+    background-color: $nav-bar-color-secondary;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-ul {
+    display: flex;
+    align-items: center;
+  }
+ 
+  .nav-ul .text-with-icon {
+    color: $text-color-primary;
+  }
+  
+  .nav-ul .text-with-icon:hover {
+    color: $text-color-secondary;
+  }
+  
+  .nav-ul > li {
+    margin: 0 11px 0 11px;
+  }
+  
+  .link-text {
+    display: flex;
+    align-items: center;
+  }
+  
+  .expand-link {
+    display: flex;
+    cursor: pointer;
+  }
+  
+  .expand-link:hover {
+    color: $text-color-secondary;
+  }
+  
+  .login {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    width: 190px;
+  }
+
+  .login .link {
+    text-align: center;
+  }
+  .login .link:hover {
+    color:$text-color-primary;
+  }
+
+  @media only screen and (max-width: 960px) {
+
+    .nav-bar {
+      padding-right: 90px;
+    }
+  
+    .login {
+      width: 90px;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+
+    .search {
+      width: 150px;
+    }
+  
+    .nav-ul {
+      width: 100%;
+    }
+  
+    .search-bar-text::placeholder {
+      color: $transparent;
+    }
+  }
+  
+  @media only screen and (max-width: 650px) {
+    .search {
+      width: 100px;
+    }
+
+    .nav-bar {
+      padding-left: 20px;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    .magnifying-glass {
+      width: 52px;
+    }
+  }
+  
+  @media only screen and (max-width: 550px) {
+    .login {
+      display: none;
+    }
+  
+    .nav-bar {
+      padding-right: 0;
+    }
+  
+    .nav-links {
+      padding-right: 20px;
+    }
+  }
+  
+  @media only screen and (max-width: 340px) {
+    .search {
+      display: none;
+    }
+  
+    .nav-bar {
+      padding-left: 0;
+    }
+  
+    .nav-links {
+      padding-left: 20px;
+    }
+  }
+  

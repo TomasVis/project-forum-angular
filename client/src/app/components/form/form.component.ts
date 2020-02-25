@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./form.component.scss'],
   providers: [ArticleDataService]
 })
-
+// hoisting constructor ngoninit...
 export class FormComponent implements OnInit, OnDestroy { 
   articleForm = new FormGroup({
     author: new FormControl(''),
@@ -27,11 +27,12 @@ export class FormComponent implements OnInit, OnDestroy {
   private post: Post = new Post();
 
   constructor(private articleService: ArticleDataService, private router: Router, private route: ActivatedRoute) {
+    //why initialize in constructor
     const query = this.route.queryParams.subscribe(params => {
       this.queryId = params['id'];
-  });
-  this.subscriptions.add(query);
-   }
+    });
+    this.subscriptions.add(query);
+  }
 
   onClickDelete(): void {
     const deleteSubscription = this.articleService.deletePost('?id='+this.queryId).subscribe(() => {
@@ -49,7 +50,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.isEdit = Boolean(this.queryId)
+    this.isEdit = Boolean(!!this.queryId)
     const getPostSubscription = this.articleService.getPost('?id='+this.queryId).subscribe(data => {
       this.post = { ...this.post, ...data };
       this.articleForm.patchValue(this.post);
