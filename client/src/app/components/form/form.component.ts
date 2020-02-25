@@ -41,7 +41,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   onClickSave(): void {
-    const updateSubscription = this.articleService.updatePost('?id='+this.queryId, this.articleForm.value)
+    const updateSubscription = this.articleService.updatePost(this.queryId ? '?id='+this.queryId : '', this.articleForm.value)
     .subscribe(() => {
       this.router.navigate(['/']);
     });
