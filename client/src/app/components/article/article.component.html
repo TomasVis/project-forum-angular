@@ -19,7 +19,11 @@
 </div>
 <article *ngFor="let post of allPosts" class="article-container">
   <div class="question-container">
-    <a href="/edit-post?id={{post.id}}" class="redirect-to-post" id="0">
+    <a
+      [routerLink]="['/edit-post']"
+      [queryParams]="{ id: post.id }"
+      class="redirect-to-post"
+    >
       <h4 class="question-header">
         {{ post.title }}
       </h4>
