@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Post } from './post'
 import { ArticleDataService } from '../../services/article.data.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-  providers: [ ArticleDataService ]
+  providers: [ArticleDataService]
 })
-export class FormComponent implements OnInit { //other implements
+
+export class FormComponent implements OnInit, OnDestroy { 
   articleForm = new FormGroup({
     author: new FormControl(''),
     date: new FormControl(''),
@@ -17,35 +20,44 @@ export class FormComponent implements OnInit { //other implements
     content: new FormControl(''),
     id: new FormControl('')
   });
-  post:Post = new Post; 
-  isEdit:boolean; 
-  
-  constructor(private articleService: ArticleDataService) { }
+  isEdit: boolean;
+  subscriptions = new Subscription();
+  queryId: string;
 
-  onClickDelete() {
-    this.articleService.deletePost(window.location.search).subscribe(data => { console.log(data) });
+  private post: Post = new Post();
+
+  constructor(private articleService: ArticleDataService, private router: Router, private route: ActivatedRoute) {
+    const query = this.route.queryParams.subscribe(params => {
+      this.queryId = params['id'];
+  });
+  this.subscriptions.add(query);
+   }
+
+  onClickDelete(): void {
+    const deleteSubscription = this.articleService.deletePost('?id='+this.queryId).subscribe(() => {
+      this.router.navigate(['/']);
+    });
+    this.subscriptions.add(deleteSubscription);
   }
-  onClickSave() {
 
-    this.articleService.updatePost(window.location.search, this.articleForm.value).subscribe(data => { console.log(data) });
+  onClickSave(): void {
+    const updateSubscription = this.articleService.updatePost('?id='+this.queryId, this.articleForm.value)
+    .subscribe(() => {
+      this.router.navigate(['/']);
+    });
+    this.subscriptions.add(updateSubscription);
   }
 
   ngOnInit(): void {
-    this.isEdit= Boolean(window.location.search)
-    console.log(this.isEdit)
-    this.articleService.getPost(window.location.search).subscribe(data => {
-
-     this.post = {...this.post, ...data};
-     this.articleForm.patchValue({author:this.post.author}); 
-     this.articleForm.patchValue({date:this.post.date}); 
-     this.articleForm.patchValue({title:this.post.title}); 
-     this.articleForm.patchValue({content:this.post.content}); 
-     this.articleForm.patchValue({id:this.post.id}); 
- 
-     });
-
-
-   // this.test.aa = '';
+    this.isEdit = Boolean(this.queryId)
+    const getPostSubscription = this.articleService.getPost('?id='+this.queryId).subscribe(data => {
+      this.post = { ...this.post, ...data };
+      this.articleForm.patchValue(this.post);
+    });
+    this.subscriptions.add(getPostSubscription);
   }
 
+  ngOnDestroy():void {
+    this.subscriptions.unsubscribe();
+  }
 }
