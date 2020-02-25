@@ -1,13 +1,13 @@
 export class Post {
-    id: Number;
+    id: number;
     date: string;
     author: string;
     photo:string;
     userTag: string;
-    views:Number;
-    answers:Number;
-    votes:Number;
-    tags:[string];
+    views:number;
+    answers:number;
+    votes:number;
+    tags:string[];
     category: string;
     title: string;
     content: string;    
