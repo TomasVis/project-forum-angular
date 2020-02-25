@@ -5,11 +5,15 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-  providers: [ArticleDataService]
+  providers: [
+    ArticleDataService,
+
+  ]
 })
 // hoisting constructor ngoninit...
 export class FormComponent implements OnInit, OnDestroy { 
@@ -24,7 +28,7 @@ export class FormComponent implements OnInit, OnDestroy {
   subscriptions = new Subscription();
   queryId: string;
 
-  private post: Post = new Post();
+  private post = new Post();
 
   constructor(private articleService: ArticleDataService, private router: Router, private route: ActivatedRoute) {
     //why initialize in constructor
@@ -50,7 +54,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.isEdit = Boolean(!!this.queryId)
+    this.isEdit = !!this.queryId
     const getPostSubscription = this.articleService.getPost('?id='+this.queryId).subscribe(data => {
       this.post = { ...this.post, ...data };
       this.articleForm.patchValue(this.post);
