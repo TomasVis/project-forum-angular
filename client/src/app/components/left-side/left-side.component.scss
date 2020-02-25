@@ -1,0 +1,116 @@
+@import '../../../styles/variables'; 
+.left-side-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 190px;
+    position: fixed;
+  }
+  .left-container, .copyright-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: calc(100% - 40px);
+  }
+  
+  .left-container {
+    border-bottom: $primary-border;
+  }
+  
+  .ask-question-container {
+    border-bottom: $primary-border;
+    padding: 20px;
+  }
+  
+  .copyright-container {
+    border-top: $primary-border;
+  }
+
+  .link:hover {
+    color: $nav-bar-color-primary;
+  }
+
+  .text-with-icon:hover {
+    color: $text-color-secondary;
+  }
+
+  .pseudo-icon:before {
+    content: "";
+    display: block;
+    background-image: url(http://www.trenatics.com/public/images/iconfile/sprites/css-sprite/sprite-action-grey600.png);
+    width: 24px;
+    height: 24px;
+    transform: scale(0.6);
+    background-repeat: no-repeat;
+    padding: 0;
+    border: none;
+  }
+
+  .social-media {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 20px 0 20px 0;
+  }
+  
+  .social-icon {
+    width: 48px;
+    height: 48px;
+    transform: scale(0.6);
+    background-image: url("https://i.stack.imgur.com/LR6bK.png");
+    background-repeat: no-repeat;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .facebook-icon {
+    background-position: -347px -141px;
+  }
+  
+  .facebook-icon:hover {
+    background-position: -347px -400px;
+  }
+  
+  .twiter-icon {
+    background-position: -861px -141px;
+  }
+  
+  .twiter-icon:hover {
+    background-position: -861px -400px;
+  }
+  
+  .google-icon {
+    background-position: -215px -141px;
+  }
+  
+  .google-icon:hover {
+    background-position: -215px -400px;
+  }
+  
+  .question-mark:before {
+    background-position: -242px -106px;
+  }
+  
+  .tag-icon:before {
+    background-position: -276px -174px;
+  }
+  
+  .badge-icon:before {
+    background-position: -175px -4px;
+  }
+  
+  .category-icon:before {
+    background-position: -141px -379px;
+  }
+  
+  .users-icon:before {
+    background-position: -4px -4px;
+  }
+
+  @media only screen and (max-width: 650px) {
+
+    .left-side-container {
+      display: none;
+    }
+  }

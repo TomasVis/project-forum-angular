@@ -1,0 +1,46 @@
+@import '../../../styles/variables'; 
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .edit-form {
+    padding: 50px;
+    margin: 50px;
+    border: $secondary-border;
+    border-radius: 10px;
+  }
+
+  .button-delete {
+    background-color:$button-color-delete;
+  }
+
+  .input-field {
+    font-family: "Roboto", sans-serif; ;
+    padding: 10px;
+    border-radius: 5px;
+    border: $secondary-border;
+    box-shadow: $input-field-shadow;
+  }
+  
+  .form-buttons-container {
+    display: flex;
+    padding-top: 10px;
+  }
+  
+  .input-title {
+    width: calc(100% - 20px);
+  }
+  
+  .form-label {
+    display: block;
+    margin: 10px 0 10px 0;
+  }
+
+  @media only screen and (max-width: 550px) {
+    .edit-form {
+      margin: 10px;
+      padding: 10px;
+    }
+  }

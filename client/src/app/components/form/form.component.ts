@@ -5,13 +5,17 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-  providers: [ArticleDataService]
-})
+  providers: [
+    ArticleDataService,
 
+  ]
+})
+// hoisting constructor ngoninit...
 export class FormComponent implements OnInit, OnDestroy { 
   articleForm = new FormGroup({
     author: new FormControl(''),
@@ -24,14 +28,15 @@ export class FormComponent implements OnInit, OnDestroy {
   subscriptions = new Subscription();
   queryId: string;
 
-  private post: Post = new Post();
+  private post = new Post();
 
   constructor(private articleService: ArticleDataService, private router: Router, private route: ActivatedRoute) {
+    //why initialize in constructor
     const query = this.route.queryParams.subscribe(params => {
       this.queryId = params['id'];
-  });
-  this.subscriptions.add(query);
-   }
+    });
+    this.subscriptions.add(query);
+  }
 
   onClickDelete(): void {
     const deleteSubscription = this.articleService.deletePost('?id='+this.queryId).subscribe(() => {
@@ -41,7 +46,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   onClickSave(): void {
-    const updateSubscription = this.articleService.updatePost('?id='+this.queryId, this.articleForm.value)
+    const updateSubscription = this.articleService.updatePost(this.queryId ? '?id='+this.queryId : '', this.articleForm.value)
     .subscribe(() => {
       this.router.navigate(['/']);
     });
@@ -49,7 +54,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.isEdit = Boolean(this.queryId)
+    this.isEdit = !!this.queryId
     const getPostSubscription = this.articleService.getPost('?id='+this.queryId).subscribe(data => {
       this.post = { ...this.post, ...data };
       this.articleForm.patchValue(this.post);

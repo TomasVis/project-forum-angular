@@ -1,0 +1,91 @@
+@import 'variables'; 
+.icon {
+  width: 24px;
+  height: 24px;
+  transform: scale(0.6);
+  background-image: url("http://www.trenatics.com/public/images/iconfile/sprites/css-sprite/sprite-action-grey600.png");
+  background-repeat: no-repeat;
+  padding: 0;
+  border: none;
+}
+
+.text-with-icon {
+  display: flex;
+  align-items: center;
+  font-size: 0.833em;
+  cursor: pointer;
+  color: $article-text-color;
+  white-space: nowrap;
+}
+  
+.expand-icon:after {
+  content: "";
+  display: block;
+  background-image: url(http://www.trenatics.com/public/images/iconfile/sprites/css-sprite/sprite-action-grey600.png);
+  width: 24px;
+  height: 15px;
+  transform: scale(0.8);
+  background-repeat: no-repeat;
+  border: none;
+  background-position: -239px -6px;
+}
+
+.link {
+  font-size: 13px;
+  margin: 10px 0 10px 0;
+}
+
+.link:hover {
+color: $article-text-color;
+}
+
+.tag-label {
+  border-radius: 20px;
+  border: $tag-border;
+  background-color: $logo-color;
+  padding: 1px 5px 0 5px;
+  height: 15px;
+  margin: 0 10px 0 0;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+  
+.tag-label:hover {
+  box-shadow: $tag-label-shadow;
+  transform: scale(1.12);
+}
+
+
+.inside-animation {
+  backface-visibility: hidden;
+  transform: translateZ(0) scale(1, 1);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1, 1);
+}
+.regular-text {
+  font-size: 0.833em;
+  text-overflow: ellipsis;
+}
+  
+.main-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  width: 136px;
+  height: 35px;
+  background-color: $text-color-secondary;
+  color: $logo-color;
+  font-size: 12px;
+  letter-spacing: 0;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.main-button:hover {
+  box-shadow: $tag-label-shadow;
+    transform: scale(1.02);
+}
+
+

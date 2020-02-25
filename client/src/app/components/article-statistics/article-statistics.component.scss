@@ -1,0 +1,55 @@
+@import '../../../styles/variables'; 
+
+.question-info-container .regular-text {
+  text-align: center;
+}
+
+.question-info-container {
+  display: flex;
+  min-width: 156px;
+}
+  
+.info-label {
+  border-radius: 200px 200px 200px 200px;
+  border: $tag-border;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  background: $circle-radial-color-primary;
+}
+
+.user-info-container {
+  display: flex;
+  align-items: center;
+}
+
+.info-label:hover {
+  animation: rotation 0.5s forwards;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(2deg);
+  }
+  40% {
+    transform: rotate(6deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(6deg);
+  }
+}
+
+.question-info-container :nth-child(even) div {
+  background:$circle-radial-color-secondary; 
+  color: $logo-color;
+}

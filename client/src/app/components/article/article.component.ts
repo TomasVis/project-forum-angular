@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Posts } from './posts';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ArticleDataService } from '../../services/article.data.service';
+import { Subscription } from 'rxjs';
+import { Post } from '../form/post';
 
 @Component({
   selector: 'app-article',
@@ -8,13 +9,19 @@ import { ArticleDataService } from '../../services/article.data.service';
   styleUrls: ['./article.component.scss'],
   providers: [ ArticleDataService ],
 })
-export class ArticleComponent implements OnInit {
-  allPosts: Posts[]; 
+export class ArticleComponent implements OnInit, OnDestroy {
+  public allPosts: Post[];
+  private getPostsSubscription: Subscription;
   constructor(private articleService: ArticleDataService) { }
   
   ngOnInit(): void {
-    this.articleService.getPosts()
-      .subscribe((data: Posts[]) => this.allPosts = data);
+    this.getPostsSubscription = this.articleService.getPosts()
+      .subscribe((data: Post[]) => this.allPosts = data);
+  }
+  ngOnDestroy(): void {
+    if(this.getPostsSubscription){
+      this.getPostsSubscription.unsubscribe()
+    }
   }
 };
 
