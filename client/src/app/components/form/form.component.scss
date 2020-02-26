@@ -38,6 +38,12 @@
     margin: 10px 0 10px 0;
   }
 
+  .validation-warning {
+    padding: 10px;
+    font-size: 12px;
+    color: $button-color-delete;
+  }
+
   @media only screen and (max-width: 550px) {
     .edit-form {
       margin: 10px;

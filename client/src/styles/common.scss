@@ -56,7 +56,6 @@ color: $article-text-color;
   transform: scale(1.12);
 }
 
-
 .inside-animation {
   backface-visibility: hidden;
   transform: translateZ(0) scale(1, 1);
@@ -87,6 +86,17 @@ color: $article-text-color;
   box-shadow: $tag-label-shadow;
     transform: scale(1.02);
 }
+.button-disabled {
+  background-color: $left-side-background-color;
+  color: $nav-bar-color-secondary;
+}
+.button-disabled:hover {
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+
 
 .article-container:nth-child(odd) {
   .question-info-container :nth-child(even) div {

@@ -1,7 +1,17 @@
 <div class="form-container">
   <form id="form" class="edit-form" [formGroup]="articleForm">
     <label class="form-label" for="title">Name:</label>
-    <input class="input-field" type="text" formControlName="author" />
+    <input class="input-field" type="text" formControlName="author" required />
+    <div
+      *ngIf="author.invalid && (author.dirty || author.touched)"
+    >
+      <div *ngIf="author.errors.required" class="validation-warning">
+        Name is required.
+      </div>
+      <div *ngIf="author.errors.minlength" class="validation-warning">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
     <label class="form-label" for="date">Date:</label>
     <input class="input-field" type="date" formControlName="date" />
     <label class="form-label" for="title">Title:</label>
@@ -9,16 +19,34 @@
       class="input-field input-title"
       type="text"
       formControlName="title"
+      required
     />
+    <div
+      *ngIf="title.invalid && (title.dirty || title.touched)"
+    >
+      <div *ngIf="title.errors.required" class="validation-warning">
+        Title is required.
+      </div>
+    </div>
     <label class="form-label" for="content">Explanation:</label>
     <textarea
       class="input-field"
       formControlName="content"
       rows="7"
       cols="40"
+      required
     ></textarea>
+    <div
+    *ngIf="content.invalid && (content.dirty || content.touched)"
+  >
+    <div *ngIf="content.errors.required" class="validation-warning">
+      Explanation is required.
+    </div>
+  </div>
     <div class="form-buttons-container">
       <button
+        [disabled]="!articleForm.valid"
+        [class.button-disabled]="!articleForm.valid"
         type="button"
         class="main-button"
         (click)="onClickSave()"
