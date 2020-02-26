@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Post } from './post'
 import { ArticleDataService } from '../../services/article.data.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -15,27 +14,30 @@ import { Subscription } from 'rxjs';
 
   ]
 })
-// hoisting constructor ngoninit...
+
 export class FormComponent implements OnInit, OnDestroy { 
   articleForm = new FormGroup({
     author: new FormControl(''),
     date: new FormControl(''),
     title: new FormControl(''),
-    content: new FormControl(''),
-    id: new FormControl('')
+    content: new FormControl('')
   });
   isEdit: boolean;
   subscriptions = new Subscription();
   queryId: string;
 
-  private post = new Post();
+  constructor(private articleService: ArticleDataService, private router: Router, private route: ActivatedRoute) { }
 
-  constructor(private articleService: ArticleDataService, private router: Router, private route: ActivatedRoute) {
-    //why initialize in constructor
+  ngOnInit(): void {
     const query = this.route.queryParams.subscribe(params => {
       this.queryId = params['id'];
     });
     this.subscriptions.add(query);
+    this.isEdit = !!this.queryId
+    const getPostSubscription = this.articleService.getPost('?id='+this.queryId).subscribe(data => {
+      this.articleForm.patchValue({ ...data });
+    });
+    this.subscriptions.add(getPostSubscription);
   }
 
   onClickDelete(): void {
@@ -51,15 +53,6 @@ export class FormComponent implements OnInit, OnDestroy {
       this.router.navigate(['/']);
     });
     this.subscriptions.add(updateSubscription);
-  }
-
-  ngOnInit(): void {
-    this.isEdit = !!this.queryId
-    const getPostSubscription = this.articleService.getPost('?id='+this.queryId).subscribe(data => {
-      this.post = { ...this.post, ...data };
-      this.articleForm.patchValue(this.post);
-    });
-    this.subscriptions.add(getPostSubscription);
   }
 
   ngOnDestroy():void {

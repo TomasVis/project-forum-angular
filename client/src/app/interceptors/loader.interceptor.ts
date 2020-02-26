@@ -13,4 +13,3 @@ export class LoaderInterceptor implements HttpInterceptor {
         );
     }
 }
-//RxJS documentation to learn more about finalize

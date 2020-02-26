@@ -88,4 +88,10 @@ color: $article-text-color;
     transform: scale(1.02);
 }
 
+.article-container:nth-child(odd) {
+  .question-info-container :nth-child(even) div {
+    background:$circle-radial-color-secondary; 
+    color: $logo-color;
+  }
+}
 
