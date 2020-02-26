@@ -1,14 +1,16 @@
 <div class="form-container">
+
   <form id="form" class="edit-form" [formGroup]="articleForm">
+<app-spinner *ngIf="loading"></app-spinner>
     <label class="form-label" for="title">Name:</label>
     <input class="input-field" type="text" formControlName="author" required />
     <div
-      *ngIf="author.invalid && (author.dirty || author.touched)"
+      *ngIf="authorControl.invalid && (authorControl.dirty || authorControl.touched)"
     >
-      <div *ngIf="author.errors.required" class="validation-warning">
+      <div *ngIf="authorControl.errors.required" class="validation-warning">
         Name is required.
       </div>
-      <div *ngIf="author.errors.minlength" class="validation-warning">
+      <div *ngIf="authorControl.errors.minlength" class="validation-warning">
         Name must be at least 4 characters long.
       </div>
     </div>
@@ -22,9 +24,9 @@
       required
     />
     <div
-      *ngIf="title.invalid && (title.dirty || title.touched)"
+      *ngIf="titleControl.invalid && (titleControl.dirty || titleControl.touched)"
     >
-      <div *ngIf="title.errors.required" class="validation-warning">
+      <div *ngIf="titleControl.errors.required" class="validation-warning">
         Title is required.
       </div>
     </div>
@@ -37,9 +39,9 @@
       required
     ></textarea>
     <div
-    *ngIf="content.invalid && (content.dirty || content.touched)"
+    *ngIf="contentControl.invalid && (contentControl.dirty || contentControl.touched)"
   >
-    <div *ngIf="content.errors.required" class="validation-warning">
+    <div *ngIf="contentControl.errors.required" class="validation-warning">
       Explanation is required.
     </div>
   </div>

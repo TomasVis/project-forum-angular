@@ -21,9 +21,11 @@ a.redirect-to-post {
   width: calc(100% - 20px);
 }
 
-.question-info-container .regular-text {
-  text-align: center;
-}
+.question-info-container{
+  .regular-text {
+    text-align: center;
+  }
+} 
 
 .question-header {
   margin: 0;
@@ -68,9 +70,11 @@ a.redirect-to-post {
   display: flex;
   align-items: center;
 }
-.question-details.regular-text > a {
-  margin-left: 2px;
-}
+.question-details.regular-text {
+  a {
+    margin-left: 2px;
+  }
+} 
 
 .info-label {
   border-radius: 200px 200px 200px 200px;

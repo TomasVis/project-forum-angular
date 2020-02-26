@@ -1,4 +1,4 @@
-@import 'variables'; 
+@import "variables";
 .icon {
   width: 24px;
   height: 24px;
@@ -17,7 +17,7 @@
   color: $article-text-color;
   white-space: nowrap;
 }
-  
+
 .expand-icon:after {
   content: "";
   display: block;
@@ -36,7 +36,7 @@
 }
 
 .link:hover {
-color: $article-text-color;
+  color: $article-text-color;
 }
 
 .tag-label {
@@ -50,7 +50,7 @@ color: $article-text-color;
   cursor: pointer;
   transition: transform 0.3s;
 }
-  
+
 .tag-label:hover {
   box-shadow: $tag-label-shadow;
   transform: scale(1.12);
@@ -66,7 +66,7 @@ color: $article-text-color;
   font-size: 0.833em;
   text-overflow: ellipsis;
 }
-  
+
 .main-button {
   display: flex;
   align-items: center;
@@ -84,7 +84,7 @@ color: $article-text-color;
 
 .main-button:hover {
   box-shadow: $tag-label-shadow;
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 .button-disabled {
   background-color: $left-side-background-color;
@@ -96,12 +96,39 @@ color: $article-text-color;
   cursor: not-allowed;
 }
 
-
-
 .article-container:nth-child(odd) {
   .question-info-container :nth-child(even) div {
-    background:$circle-radial-color-secondary; 
+    background: $circle-radial-color-secondary;
     color: $logo-color;
   }
 }
 
+// .spin {
+//   position: absolute;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 10;
+//   background-color: $left-side-background-color;
+//   div {
+//     border: 10px solid $logo-color;
+//     border-top: 10px solid $text-color-secondary;
+//     border-radius: 50%;
+//     width: 80px;
+//     height: 80px;
+//     animation: spin 2s linear infinite;
+
+//     @keyframes spin {
+//       0% {
+//         transform: rotate(0deg);
+//       }
+//       100% {
+//         transform: rotate(360deg);
+//       }
+//     }
+//   }
+// }

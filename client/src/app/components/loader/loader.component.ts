@@ -7,6 +7,6 @@ import { LoaderService } from '../../services/loader.service';
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent {
-  isLoading: Subject<boolean> = this.loaderService.isLoading;
-  constructor(private loaderService: LoaderService){}
+  // isLoading: Subject<boolean> = this.loaderService.isLoading;
+  // constructor(private loaderService: LoaderService){}
 }
