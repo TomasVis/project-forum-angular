@@ -49,7 +49,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatProgressSpinnerModule
   ],
-  providers: [LoaderService,{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
+  providers: [LoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 

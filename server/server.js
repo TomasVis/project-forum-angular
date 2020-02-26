@@ -24,7 +24,6 @@ app.get('/get-post',urlencodedParser, function(req, res) {
 });
 
 app.get('/delete-post',urlencodedParser, function(req, res) {
-  console.log(req.query.id)
   if(req.query.id) {
     let index = posts.findIndex(obj => Number(obj.id) === Number(req.query.id));
     posts.splice(index,1);
@@ -34,8 +33,6 @@ app.get('/delete-post',urlencodedParser, function(req, res) {
 });
 
 app.post('/update-post',jsonParser, function(req, res) {
-  console.log(req.body)
-  console.log(typeof req.query.id)
   if(req.query.id){
       req.body.id = Number(req.query.id);
       let index = posts.findIndex(obj => Number(obj.id) === Number(req.body.id));

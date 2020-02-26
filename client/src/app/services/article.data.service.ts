@@ -12,17 +12,16 @@ export class ArticleDataService {
   updatePostUrl = 'http://localhost:3000/update-post'
 
 getPosts() {
-    return this.http.get(this.getPostsUrl);
+    return this.http.get<Post[]>(this.getPostsUrl);
   }
 getPost(id:string) {
-  //Post
-    return this.http.get<Post>(this.getPostUrl+id);
+    return this.http.get<Post>(this.getPostUrl + id);
   }
 deletePost(id:string) {
-    return this.http.get(this.deletePostUrl+id);
+    return this.http.get<string>(this.deletePostUrl + id);
 }
 updatePost(id:string, body:Post) {
-    return this.http.post(this.updatePostUrl+id, body);
+    return this.http.post<string>(this.updatePostUrl + id, body);
 }
 
 }
