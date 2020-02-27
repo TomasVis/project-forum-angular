@@ -38,7 +38,9 @@ export class FormComponent implements OnInit, OnDestroy {
     });
     this.subscriptions.add(query);
     this.isEdit = !!this.queryId;
+    if(this.isEdit) {this.loading = true;}
     const getPostSubscription = this.articleService.getPost('?id=' + this.queryId).subscribe(data => {
+      if(this.isEdit && data) {this.loading = false;}
       this.articleForm.patchValue({ ...data });
     });
     this.subscriptions.add(getPostSubscription);
