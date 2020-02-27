@@ -3,6 +3,9 @@ import { ArticleDataService } from '../../services/article.data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import {DatePipe} from '@angular/common'
+
+
 
 @Component({
   selector: 'app-form',
@@ -25,14 +28,21 @@ export class FormComponent implements OnInit, OnDestroy {
   ]);
   titleControl = new FormControl('');
   contentControl = new FormControl('');
+  dateControl = new FormControl('') 
+  datepipe = new DatePipe(navigator.language);
+  currentDate: string
+
+
 
   ngOnInit(): void {
     this.articleForm = new FormGroup({
       author: this.authorControl,
-      date: new FormControl(''),
+      date: this.dateControl,
       title: this.titleControl,
       content: this.contentControl
-    });
+    });    
+    this.currentDate = this.datepipe.transform(new Date(), 'y-MM-dd');
+    this.articleForm.patchValue({date: this.currentDate}); 
     const query = this.route.queryParams.subscribe(params => {
       this.queryId = params['id'];
     });
