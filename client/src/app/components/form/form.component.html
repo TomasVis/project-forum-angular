@@ -1,7 +1,20 @@
 <div class="form-container">
-  <form id="form" class="edit-form" [formGroup]="articleForm">
+  <form id="form" class="edit-form" [formGroup]="articleForm" [class.is-form-submited]="isFormSubmitted">
+    <app-spinner *ngIf="loading$" [isOverlayVisible]="true"></app-spinner>
     <label class="form-label" for="title">Name:</label>
     <input class="input-field" type="text" formControlName="author" />
+    <div
+      *ngIf="
+        (authorControl.invalid && (authorControl.dirty || authorControl.touched)) || (authorControl.invalid && isFormSubmitted)
+      "
+    >
+      <div *ngIf="authorControl.errors.required" class="validation-warning">
+        Name is required.
+      </div>
+      <div *ngIf="authorControl.errors.minlength" class="validation-warning">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
     <label class="form-label" for="date">Date:</label>
     <input class="input-field" type="date" formControlName="date" />
     <label class="form-label" for="title">Title:</label>
@@ -9,14 +22,34 @@
       class="input-field input-title"
       type="text"
       formControlName="title"
+      
     />
+    <div
+      *ngIf="
+      (titleControl.invalid && (titleControl.dirty || titleControl.touched)) || (titleControl.invalid && isFormSubmitted)
+      "
+    >
+      <div *ngIf="titleControl.errors.required" class="validation-warning">
+        Title is required.
+      </div>
+    </div>
     <label class="form-label" for="content">Explanation:</label>
     <textarea
       class="input-field"
       formControlName="content"
       rows="7"
       cols="40"
+      
     ></textarea>
+    <div
+      *ngIf="
+      (contentControl.invalid && (contentControl.dirty || contentControl.touched)) || (contentControl.invalid && isFormSubmitted)
+      "
+    >
+      <div *ngIf="contentControl.errors.required" class="validation-warning">
+        Explanation is required.
+      </div>
+    </div>
     <div class="form-buttons-container">
       <button
         type="button"

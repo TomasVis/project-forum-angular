@@ -8,7 +8,6 @@
   $nav-bar-color-secondary:rgb(0, 0, 0);
   $transparent:rgba(0, 0, 0, 0);
   $text-color-secondary:rgb(0, 159, 245);
-  $questions-line-color:rgb(22, 162, 255);
   $members-line-color:rgb(219, 144, 4);
   $button-color-delete:rgb(255,45,22);
   $user-tag-color:rgb(167, 43, 150);
@@ -27,6 +26,8 @@
   $primary-border: 2px solid rgb(238, 241, 241);
   $secondary-border: solid 1px rgba(163, 167, 175, 0.6);
   $tag-border: 1px solid rgb(182, 182, 182);
+  $invalid-border: 1px solid rgb(255,45,22);
+  $valid-border: 1px solid rgb(0, 159, 245);
 
   $tag-label-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.21);
   $input-field-shadow: 1px 1px 1px rgb(163, 167, 175);

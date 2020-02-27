@@ -1,4 +1,4 @@
-@import 'variables'; 
+@import "variables";
 .icon {
   width: 24px;
   height: 24px;
@@ -17,7 +17,7 @@
   color: $article-text-color;
   white-space: nowrap;
 }
-  
+
 .expand-icon:after {
   content: "";
   display: block;
@@ -36,7 +36,7 @@
 }
 
 .link:hover {
-color: $article-text-color;
+  color: $article-text-color;
 }
 
 .tag-label {
@@ -50,12 +50,11 @@ color: $article-text-color;
   cursor: pointer;
   transition: transform 0.3s;
 }
-  
+
 .tag-label:hover {
   box-shadow: $tag-label-shadow;
   transform: scale(1.12);
 }
-
 
 .inside-animation {
   backface-visibility: hidden;
@@ -67,7 +66,7 @@ color: $article-text-color;
   font-size: 0.833em;
   text-overflow: ellipsis;
 }
-  
+
 .main-button {
   display: flex;
   align-items: center;
@@ -85,12 +84,21 @@ color: $article-text-color;
 
 .main-button:hover {
   box-shadow: $tag-label-shadow;
-    transform: scale(1.02);
+  transform: scale(1.02);
+}
+.button-disabled {
+  background-color: $left-side-background-color;
+  color: $nav-bar-color-secondary;
+}
+.button-disabled:hover {
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
 }
 
 .article-container:nth-child(odd) {
   .question-info-container :nth-child(even) div {
-    background:$circle-radial-color-secondary; 
+    background: $circle-radial-color-secondary;
     color: $logo-color;
   }
 }

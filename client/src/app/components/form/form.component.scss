@@ -1,46 +1,77 @@
-@import '../../../styles/variables'; 
-  .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .edit-form {
-    padding: 50px;
-    margin: 50px;
-    border: $secondary-border;
-    border-radius: 10px;
-  }
+@import "../../../styles/variables";
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .button-delete {
-    background-color:$button-color-delete;
-  }
+.edit-form {
+  padding: 50px;
+  margin: 50px;
+  border: $secondary-border;
+  border-radius: 10px;
+  position: relative;
+}
 
-  .input-field {
-    font-family: "Roboto", sans-serif; ;
-    padding: 10px;
-    border-radius: 5px;
-    border: $secondary-border;
-    box-shadow: $input-field-shadow;
-  }
-  
-  .form-buttons-container {
-    display: flex;
-    padding-top: 10px;
-  }
-  
-  .input-title {
-    width: calc(100% - 20px);
-  }
-  
-  .form-label {
-    display: block;
-    margin: 10px 0 10px 0;
-  }
+.button-delete {
+  background-color: $button-color-delete;
+}
 
-  @media only screen and (max-width: 550px) {
-    .edit-form {
-      margin: 10px;
-      padding: 10px;
+.input-field {
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+  border-radius: 5px;
+  border: $secondary-border;
+  box-shadow: $input-field-shadow;
+}
+
+.form-buttons-container {
+  display: flex;
+  padding-top: 10px;
+}
+
+.input-title {
+  width: calc(100% - 20px);
+}
+
+.form-label {
+  display: block;
+  margin: 10px 0 10px 0;
+}
+
+.validation-warning {
+  padding: 10px;
+  font-size: 12px;
+  color: $button-color-delete;
+}
+
+.input-field {
+  &.ng-touched {
+    &.ng-invalid {
+      border: $invalid-border;
     }
   }
+}
+
+.is-form-submited {
+  &.ng-invalid {
+    border: $invalid-border;
+  }
+  .input-field {
+    &.ng-invalid {
+      border: $invalid-border;
+    }
+  }
+}
+.edit-form {
+  &.ng-valid {
+    border: $valid-border;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .edit-form {
+    margin: 10px;
+    padding: 10px;
+  }
+}
