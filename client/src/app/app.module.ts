@@ -15,10 +15,10 @@ import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoaderComponent } from './components/loader/loader.component';
 import { LoaderService } from './services/loader.service';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+
 
 const appRoutes: Routes = [
   { path: 'all-posts', component: ArticleComponent },
@@ -39,8 +39,7 @@ const appRoutes: Routes = [
     ArticleStatisticsComponent,
     FormComponent,
     LoaderComponent,
-    SpinnerComponent,
-
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +48,6 @@ const appRoutes: Routes = [
       appRoutes,
     ),
     ReactiveFormsModule,
-    MatProgressSpinnerModule
   ],
   providers: [LoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]

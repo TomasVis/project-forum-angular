@@ -1,11 +1,11 @@
 <div class="form-container">
-  <form id="form" class="edit-form" [formGroup]="articleForm">
-    <app-spinner *ngIf="loading" [isOverlayVisible]="true"></app-spinner>
+  <form id="form" class="edit-form" [formGroup]="articleForm" [class.is-form-submited]="isFormSubmitted">
+    <app-spinner *ngIf="loading$" [isOverlayVisible]="true"></app-spinner>
     <label class="form-label" for="title">Name:</label>
-    <input class="input-field" type="text" formControlName="author" required />
+    <input class="input-field" type="text" formControlName="author" />
     <div
       *ngIf="
-        authorControl.invalid && (authorControl.dirty || authorControl.touched)
+        (authorControl.invalid && (authorControl.dirty || authorControl.touched)) || (authorControl.invalid && isFormSubmitted)
       "
     >
       <div *ngIf="authorControl.errors.required" class="validation-warning">
@@ -22,11 +22,11 @@
       class="input-field input-title"
       type="text"
       formControlName="title"
-      required
+      
     />
     <div
       *ngIf="
-        titleControl.invalid && (titleControl.dirty || titleControl.touched)
+      (titleControl.invalid && (titleControl.dirty || titleControl.touched)) || (titleControl.invalid && isFormSubmitted)
       "
     >
       <div *ngIf="titleControl.errors.required" class="validation-warning">
@@ -39,12 +39,11 @@
       formControlName="content"
       rows="7"
       cols="40"
-      required
+      
     ></textarea>
     <div
       *ngIf="
-        contentControl.invalid &&
-        (contentControl.dirty || contentControl.touched)
+      (contentControl.invalid && (contentControl.dirty || contentControl.touched)) || (contentControl.invalid && isFormSubmitted)
       "
     >
       <div *ngIf="contentControl.errors.required" class="validation-warning">
@@ -53,8 +52,6 @@
     </div>
     <div class="form-buttons-container">
       <button
-        [disabled]="!articleForm.valid"
-        [class.button-disabled]="!articleForm.valid"
         type="button"
         class="main-button"
         (click)="onClickSave()"

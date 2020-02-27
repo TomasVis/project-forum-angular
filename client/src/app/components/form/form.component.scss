@@ -53,6 +53,16 @@
   }
 }
 
+.is-form-submited {
+  &.ng-invalid {
+    border: $invalid-border;
+  }
+  .input-field {
+    &.ng-invalid {
+      border: $invalid-border;
+    }
+  }
+}
 .edit-form {
   &.ng-valid {
     border: $valid-border;
