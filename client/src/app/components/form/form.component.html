@@ -1,11 +1,12 @@
 <div class="form-container">
-
   <form id="form" class="edit-form" [formGroup]="articleForm">
-<app-spinner *ngIf="loading"></app-spinner>
+    <app-spinner *ngIf="loading" [isOverlayVisible]="true"></app-spinner>
     <label class="form-label" for="title">Name:</label>
     <input class="input-field" type="text" formControlName="author" required />
     <div
-      *ngIf="authorControl.invalid && (authorControl.dirty || authorControl.touched)"
+      *ngIf="
+        authorControl.invalid && (authorControl.dirty || authorControl.touched)
+      "
     >
       <div *ngIf="authorControl.errors.required" class="validation-warning">
         Name is required.
@@ -24,7 +25,9 @@
       required
     />
     <div
-      *ngIf="titleControl.invalid && (titleControl.dirty || titleControl.touched)"
+      *ngIf="
+        titleControl.invalid && (titleControl.dirty || titleControl.touched)
+      "
     >
       <div *ngIf="titleControl.errors.required" class="validation-warning">
         Title is required.
@@ -39,12 +42,15 @@
       required
     ></textarea>
     <div
-    *ngIf="contentControl.invalid && (contentControl.dirty || contentControl.touched)"
-  >
-    <div *ngIf="contentControl.errors.required" class="validation-warning">
-      Explanation is required.
+      *ngIf="
+        contentControl.invalid &&
+        (contentControl.dirty || contentControl.touched)
+      "
+    >
+      <div *ngIf="contentControl.errors.required" class="validation-warning">
+        Explanation is required.
+      </div>
     </div>
-  </div>
     <div class="form-buttons-container">
       <button
         [disabled]="!articleForm.valid"

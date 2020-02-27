@@ -4,8 +4,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-
-
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -18,7 +16,7 @@ import { Subscription } from 'rxjs';
 export class FormComponent implements OnInit, OnDestroy {
   articleForm: FormGroup;
   isEdit: boolean;
-  loading:boolean;
+  loading: boolean;
   subscriptions = new Subscription();
   queryId: string;
   authorControl = new FormControl('', [
@@ -39,7 +37,7 @@ export class FormComponent implements OnInit, OnDestroy {
       this.queryId = params['id'];
     });
     this.subscriptions.add(query);
-    this.isEdit = !!this.queryId
+    this.isEdit = !!this.queryId;
     const getPostSubscription = this.articleService.getPost('?id=' + this.queryId).subscribe(data => {
       this.articleForm.patchValue({ ...data });
     });
@@ -47,7 +45,9 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   onClickDelete(): void {
-    const deleteSubscription = this.articleService.deletePost('?id=' + this.queryId).subscribe(() => {
+    this.loading = true;
+    const deleteSubscription = this.articleService.deletePost('?id=' + this.queryId).subscribe((response) => {
+      if(response) {this.loading = false}
       this.router.navigate(['/']);
     });
     this.subscriptions.add(deleteSubscription);
@@ -61,13 +61,11 @@ export class FormComponent implements OnInit, OnDestroy {
         this.router.navigate(['/']);
       });
     this.subscriptions.add(updateSubscription);
-
   }
-
+ 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
 
   constructor(private articleService: ArticleDataService, private router: Router, private route: ActivatedRoute) { }
 }
-//Spinner kitaip

@@ -10,13 +10,18 @@ import { Post } from '../form/post';
   providers: [ ArticleDataService ],
 })
 export class ArticleComponent implements OnInit, OnDestroy {
-  public allPosts: Post[];
+  allPosts: Post[];
+  isLoading:boolean;
   private getPostsSubscription: Subscription;
   constructor(private articleService: ArticleDataService) { }
   
   ngOnInit(): void {
+    this.isLoading = true;
     this.getPostsSubscription = this.articleService.getPosts()
-      .subscribe((data: Post[]) => this.allPosts = data);
+      .subscribe((data: Post[]) =>{
+        if(data) {this.isLoading = false;}
+        this.allPosts = data
+      });
   }
   ngOnDestroy(): void {
     if(this.getPostsSubscription){
